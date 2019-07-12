@@ -12,7 +12,6 @@
                 });
             })
             .then(function(user){
-                console.log('user', user);
                 const historyObject = {
                     city: req.body.data.city,
                     createdAt: new Date(),
@@ -23,7 +22,6 @@
 
             })
             .then(function(response) {
-                // console.log('response', response);
                 res.status(200).send(response);
                 return;
             });
@@ -37,11 +35,9 @@
                 });
             }) 
             .then(function(user){
-                console.log('user', user);
                 return History.get({userId: user[0]._id});
             })
             .then(function(response) {
-                // console.log('response', response);
                 res.status(200).send(response);
                 return;
             });

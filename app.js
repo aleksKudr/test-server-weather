@@ -4,12 +4,19 @@ const bodyParser = require('body-parser');
 var config = require('./config');
 var mongoose = require('mongoose');
 var db =mongoose.createConnection(config.db_main);
+
+// eslint-disable-next-line
 db.on('error', console.error.bind(console, 'connection error:'));
+
+
 db.once('open', function() {
+    // eslint-disable-next-line
     console.log('Conncet');
     
 });
+
 const app = express();
+
 require('./schemas/user.schems');
 require('./schemas/history.schema');
 // Add Routes
@@ -29,13 +36,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 require('./routes/index')(app);
-
-
-// var jwt = require ('./middlewares/jwt');
-
-// app.get('/', jwt.jwt /* Using the express jwt MW here */ , (req, res) => {
-//     res.send('You are authenticated'); //Sending some response when authenticated
-// });
 
 // Error handling 
 app.use(function(err, req, res, next) {

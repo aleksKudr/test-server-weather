@@ -1,7 +1,6 @@
 (function(){
     'use strict';
     var server = require('../app');
-    // var mongoose = require('mongoose');
     var User = server.main.model('User');
 
     module.exports = {
@@ -16,7 +15,6 @@
             .create(userData,
                 function(err,user){
                     if (err){
-                        console.log(err);
                         reject(err);
                     } else {
                         resolve(user);
